@@ -4,7 +4,7 @@ import dev.esternit.ApiCrawler.dto.MovieDto;
 import dev.esternit.ApiCrawler.dto.MoviePreviewDto;
 import dev.esternit.ApiCrawler.mapper.MovieMapper;
 import dev.esternit.ApiCrawler.repository.MovieRepository;
-import dev.esternit.jooq.generated.tables.records.MovieRecord;
+import dev.esternit.generated.tables.records.MovieRecord;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,7 +1,7 @@
 package dev.esternit.ApiCrawler.mapper;
 
 import dev.esternit.ApiCrawler.dto.CrawlerTaskStatusDto;
-import dev.esternit.jooq.generated.tables.records.CrawlerTaskStatusRecord;
+import dev.esternit.generated.tables.records.CrawlerTaskStatusRecord;
 import org.springframework.stereotype.Component;
 
 @Component

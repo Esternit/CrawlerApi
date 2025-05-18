@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import dev.esternit.ApiCrawler.dto.PersonDto;
 import dev.esternit.ApiCrawler.mapper.PersonMapper;
 import dev.esternit.ApiCrawler.repository.PersonRepository;
-import dev.esternit.jooq.generated.tables.records.PersonRecord;
+import dev.esternit.generated.tables.records.PersonRecord;
 import lombok.RequiredArgsConstructor;
 
 @Service

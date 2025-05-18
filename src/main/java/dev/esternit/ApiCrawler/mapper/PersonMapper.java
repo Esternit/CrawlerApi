@@ -3,7 +3,7 @@ package dev.esternit.ApiCrawler.mapper;
 import org.springframework.stereotype.Component;
 
 import dev.esternit.ApiCrawler.dto.PersonDto;
-import dev.esternit.jooq.generated.tables.records.PersonRecord;
+import dev.esternit.generated.tables.records.PersonRecord;
 
 @Component
 public class PersonMapper {

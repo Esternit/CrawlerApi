@@ -6,7 +6,7 @@ import dev.esternit.ApiCrawler.dto.MoviePreviewDto;
 import dev.esternit.ApiCrawler.dto.PersonDto;
 import dev.esternit.ApiCrawler.mapper.MovieMapper;
 import dev.esternit.ApiCrawler.repository.MovieRepository;
-import dev.esternit.jooq.generated.tables.records.MovieRecord;
+import dev.esternit.generated.tables.records.MovieRecord;
 import org.jooq.Record;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

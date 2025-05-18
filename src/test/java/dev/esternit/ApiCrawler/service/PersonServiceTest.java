@@ -22,7 +22,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import dev.esternit.ApiCrawler.dto.PersonDto;
 import dev.esternit.ApiCrawler.mapper.PersonMapper;
 import dev.esternit.ApiCrawler.repository.PersonRepository;
-import dev.esternit.jooq.generated.tables.records.PersonRecord;
+import dev.esternit.generated.tables.records.PersonRecord;
 
 @ExtendWith(MockitoExtension.class)
 class PersonServiceTest {

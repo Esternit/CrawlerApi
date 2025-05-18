@@ -4,11 +4,11 @@ import dev.esternit.ApiCrawler.dto.CastDto;
 import dev.esternit.ApiCrawler.dto.MovieDto;
 import dev.esternit.ApiCrawler.dto.MoviePreviewDto;
 import dev.esternit.ApiCrawler.dto.PersonDto;
-import dev.esternit.jooq.generated.tables.Movie;
-import dev.esternit.jooq.generated.tables.MovieCast;
-import dev.esternit.jooq.generated.tables.Person;
-import dev.esternit.jooq.generated.tables.records.MovieRecord;
-import dev.esternit.jooq.generated.tables.records.PersonRecord;
+import dev.esternit.generated.tables.Movie;
+import dev.esternit.generated.tables.MovieCast;
+import dev.esternit.generated.tables.Person;
+import dev.esternit.generated.tables.records.MovieRecord;
+import dev.esternit.generated.tables.records.PersonRecord;
 import org.jooq.Record;
 import org.springframework.stereotype.Component;
 

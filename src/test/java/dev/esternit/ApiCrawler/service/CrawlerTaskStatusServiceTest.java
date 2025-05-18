@@ -3,7 +3,7 @@ package dev.esternit.ApiCrawler.service;
 import dev.esternit.ApiCrawler.dto.CrawlerTaskStatusDto;
 import dev.esternit.ApiCrawler.mapper.CrawlerTaskStatusMapper;
 import dev.esternit.ApiCrawler.repository.CrawlerTaskStatusRepository;
-import dev.esternit.jooq.generated.tables.records.CrawlerTaskStatusRecord;
+import dev.esternit.generated.tables.records.CrawlerTaskStatusRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

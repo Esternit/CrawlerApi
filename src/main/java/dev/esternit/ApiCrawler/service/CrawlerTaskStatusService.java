@@ -3,7 +3,7 @@ package dev.esternit.ApiCrawler.service;
 import dev.esternit.ApiCrawler.dto.CrawlerTaskStatusDto;
 import dev.esternit.ApiCrawler.mapper.CrawlerTaskStatusMapper;
 import dev.esternit.ApiCrawler.repository.CrawlerTaskStatusRepository;
-import dev.esternit.jooq.generated.tables.records.CrawlerTaskStatusRecord;
+import dev.esternit.generated.tables.records.CrawlerTaskStatusRecord;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
