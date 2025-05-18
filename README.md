@@ -41,7 +41,7 @@ API Crawler - это Spring Boot приложение для сбора и уп�
 
 ## Технический стек
 
-- Java 17
+- Java 21
 - Spring Boot
 - PostgreSQL
 - Docker
