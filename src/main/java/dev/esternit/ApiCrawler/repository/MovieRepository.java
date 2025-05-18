@@ -19,19 +19,39 @@ public class MovieRepository {
 
     private final DSLContext dsl;
 
-    public List<MovieRecord> findAll() {
-        return dsl.selectFrom(Movie.MOVIE).orderBy(Movie.MOVIE.MOVIE_ID).fetch();
-    }
-
+    /**
+     * SELECT m.*, p.person_id, p.full_name, p.imdb_id, mc.role
+     * FROM movie m LEFT JOIN movie_cast mc ON m.movie_id = mc.movie_id LEFT
+     * JOIN person p ON mc.person_id = p.person_id WHERE m.movie_id = ?;
+     */
     public List<Record> fetchMovieWithCastById(Integer movieId) {
-        return dsl.select()
+        return dsl.select(
+                Movie.MOVIE.asterisk(),
+                Person.PERSON.PERSON_ID,
+                Person.PERSON.FULL_NAME,
+                Person.PERSON.IMDB_ID,
+                MovieCast.MOVIE_CAST.ROLE)
                 .from(Movie.MOVIE)
-                .leftJoin(MovieCast.MOVIE_CAST).on(MovieCast.MOVIE_CAST.MOVIE_ID.eq(Movie.MOVIE.MOVIE_ID))
-                .leftJoin(Person.PERSON).on(Person.PERSON.PERSON_ID.eq(MovieCast.MOVIE_CAST.PERSON_ID))
+                .leftJoin(MovieCast.MOVIE_CAST)
+                .on(Movie.MOVIE.MOVIE_ID.eq(MovieCast.MOVIE_CAST.MOVIE_ID))
+                .leftJoin(Person.PERSON)
+                .on(MovieCast.MOVIE_CAST.PERSON_ID.eq(Person.PERSON.PERSON_ID))
                 .where(Movie.MOVIE.MOVIE_ID.eq(movieId))
                 .fetch();
     }
 
+    /**
+     * SELECT * FROM movie ORDER BY movie_id;
+     */
+    public List<MovieRecord> findAll() {
+        return dsl.selectFrom(Movie.MOVIE)
+                .orderBy(Movie.MOVIE.MOVIE_ID)
+                .fetch();
+    }
+
+    /**
+     * UPDATE movie SET title = ?, release_date = ?, imdb_url = ?, type = ?, country = ?, description = ? WHERE movie_id = ? RETURNING *;
+     */
     public MovieRecord update(Integer movieId, String title, LocalDate releaseDate, String imdbUrl,
             String type, String country, String description) {
         return dsl.update(Movie.MOVIE)
@@ -47,6 +67,9 @@ public class MovieRepository {
                 .fetchOne();
     }
 
+    /**
+     * DELETE FROM movie WHERE movie_id = ?;
+     */
     public void delete(Integer movieId) {
         dsl.deleteFrom(Movie.MOVIE)
                 .where(Movie.MOVIE.MOVIE_ID.eq(movieId))

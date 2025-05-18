@@ -27,7 +27,8 @@ public class CrawlerTaskStatusController {
     @GetMapping("")
     @Operation(summary = "Get all crawler tasks")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "All tasks found"),})
+        @ApiResponse(responseCode = "200", description = "All tasks found")
+    })
     public ResponseEntity<List<CrawlerTaskStatusDto>> getAllTasks() {
         return new ResponseEntity<>(crawlerTaskStatusService.getAllTasks(), HttpStatus.OK);
     }
