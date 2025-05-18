@@ -29,12 +29,6 @@ public class PersonRepository {
                 .fetchOptional();
     }
 
-    public Optional<PersonRecord> findByImdbId(String imdbId) {
-        return dsl.selectFrom(Person.PERSON)
-                .where(Person.PERSON.IMDB_ID.eq(imdbId))
-                .fetchOptional();
-    }
-
     public PersonRecord create(String fullName, String imdbId) {
         return dsl.insertInto(Person.PERSON)
                 .set(Person.PERSON.FULL_NAME, fullName)

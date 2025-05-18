@@ -67,7 +67,6 @@
 
     <build>
         <plugins>
-            <!-- JOOQ Codegen Plugin -->
             <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
@@ -106,7 +105,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Подключение сгенерированных исходников к Maven -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -127,7 +125,6 @@
                 </executions>
             </plugin>
 
-            <!-- Компилятор -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -145,7 +142,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Spring Boot Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

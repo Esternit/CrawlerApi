@@ -1,0 +1,49 @@
+package dev.esternit.ApiCrawler.service;
+
+import dev.esternit.ApiCrawler.dto.CrawlerTaskStatusDto;
+import dev.esternit.ApiCrawler.mapper.CrawlerTaskStatusMapper;
+import dev.esternit.ApiCrawler.repository.CrawlerTaskStatusRepository;
+import dev.esternit.jooq.generated.tables.records.CrawlerTaskStatusRecord;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+public class CrawlerTaskStatusService {
+
+    private final CrawlerTaskStatusRepository crawlerTaskStatusRepository;
+    private final CrawlerTaskStatusMapper crawlerTaskStatusMapper;
+
+    public List<CrawlerTaskStatusDto> getAllTasks() {
+        return crawlerTaskStatusRepository.findAll().stream()
+                .map(crawlerTaskStatusMapper::mapToDto)
+                .toList();
+    }
+
+    public Optional<CrawlerTaskStatusDto> getTaskById(Integer taskId) {
+        return crawlerTaskStatusRepository.findById(taskId)
+                .map(crawlerTaskStatusMapper::mapToDto);
+    }
+
+    @Transactional
+    public CrawlerTaskStatusDto createTask(String imdbUrl, String status, String assignedInstance) {
+        CrawlerTaskStatusRecord task = crawlerTaskStatusRepository.create(imdbUrl, status, assignedInstance);
+        return crawlerTaskStatusMapper.mapToDto(task);
+    }
+
+    @Transactional
+    public Optional<CrawlerTaskStatusDto> updateTask(Integer taskId, String status, String assignedInstance) {
+        return Optional.ofNullable(crawlerTaskStatusRepository.update(taskId, status, assignedInstance))
+                .map(crawlerTaskStatusMapper::mapToDto);
+    }
+
+
+    @Transactional
+    public void deleteTask(Integer taskId) {
+        crawlerTaskStatusRepository.delete(taskId);
+    }
+}
